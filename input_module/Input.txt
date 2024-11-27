@@ -1,0 +1,1 @@
+make this read off the inputs on the fpga.
