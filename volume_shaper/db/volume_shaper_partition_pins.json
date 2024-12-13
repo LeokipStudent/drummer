@@ -1,0 +1,197 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "envelope[0]",
+					"strict" : false
+				},
+				{
+					"name" : "envelope[1]",
+					"strict" : false
+				},
+				{
+					"name" : "envelope[2]",
+					"strict" : false
+				},
+				{
+					"name" : "adsr_idle",
+					"strict" : false
+				},
+				{
+					"name" : "attack_step_value[0]",
+					"strict" : false
+				},
+				{
+					"name" : "attack_step_value[1]",
+					"strict" : false
+				},
+				{
+					"name" : "attack_step_value[2]",
+					"strict" : false
+				},
+				{
+					"name" : "attack_step_value[3]",
+					"strict" : false
+				},
+				{
+					"name" : "attack_step_value[4]",
+					"strict" : false
+				},
+				{
+					"name" : "attack_step_value[5]",
+					"strict" : false
+				},
+				{
+					"name" : "attack_step_value[6]",
+					"strict" : false
+				},
+				{
+					"name" : "attack_step_value[7]",
+					"strict" : false
+				},
+				{
+					"name" : "release_step_value[5]",
+					"strict" : false
+				},
+				{
+					"name" : "release_step_value[4]",
+					"strict" : false
+				},
+				{
+					"name" : "release_step_value[3]",
+					"strict" : false
+				},
+				{
+					"name" : "release_step_value[2]",
+					"strict" : false
+				},
+				{
+					"name" : "release_step_value[1]",
+					"strict" : false
+				},
+				{
+					"name" : "release_step_value[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sustain_level[7]",
+					"strict" : false
+				},
+				{
+					"name" : "decay_step_value[7]",
+					"strict" : false
+				},
+				{
+					"name" : "decay_step_value[6]",
+					"strict" : false
+				},
+				{
+					"name" : "decay_step_value[5]",
+					"strict" : false
+				},
+				{
+					"name" : "decay_step_value[4]",
+					"strict" : false
+				},
+				{
+					"name" : "decay_step_value[3]",
+					"strict" : false
+				},
+				{
+					"name" : "decay_step_value[2]",
+					"strict" : false
+				},
+				{
+					"name" : "decay_step_value[1]",
+					"strict" : false
+				},
+				{
+					"name" : "decay_step_value[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sustain_level[6]",
+					"strict" : false
+				},
+				{
+					"name" : "sustain_level[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sustain_level[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sustain_level[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sustain_level[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sustain_level[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sustain_level[0]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "start",
+					"strict" : false
+				},
+				{
+					"name" : "release_step_value[7]",
+					"strict" : false
+				},
+				{
+					"name" : "release_step_value[6]",
+					"strict" : false
+				},
+				{
+					"name" : "sustain_time[7]",
+					"strict" : false
+				},
+				{
+					"name" : "sustain_time[6]",
+					"strict" : false
+				},
+				{
+					"name" : "sustain_time[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sustain_time[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sustain_time[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sustain_time[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sustain_time[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sustain_time[0]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
