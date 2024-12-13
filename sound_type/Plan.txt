@@ -1,0 +1,5 @@
+Plan for the first sound type module.
+
+Use ASMR, sine, and noise.
+Try with sine = 200 hz
+Try with noise = 
