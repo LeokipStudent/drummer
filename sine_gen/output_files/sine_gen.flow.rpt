@@ -1,5 +1,5 @@
 Flow report for sine_gen
-Fri Dec 13 14:50:13 2024
+Sat Dec 14 11:22:02 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Standard Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------------------+
 ; Flow Summary                                                                            ;
 +------------------------------------+----------------------------------------------------+
-; Flow Status                        ; Successful - Fri Dec 13 14:50:04 2024              ;
+; Flow Status                        ; Successful - Sat Dec 14 11:21:55 2024              ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Standard Edition ;
 ; Revision Name                      ; sine_gen                                           ;
 ; Top-level Entity Name              ; sine_gen                                           ;
 ; Family                             ; MAX 10                                             ;
 ; Device                             ; 10M50DAF484C7G                                     ;
 ; Timing Models                      ; Final                                              ;
-; Total logic elements               ; 89 / 49,760 ( < 1 % )                              ;
-;     Total combinational functions  ; 88 / 49,760 ( < 1 % )                              ;
+; Total logic elements               ; 84 / 49,760 ( < 1 % )                              ;
+;     Total combinational functions  ; 83 / 49,760 ( < 1 % )                              ;
 ;     Dedicated logic registers      ; 49 / 49,760 ( < 1 % )                              ;
 ; Total registers                    ; 49                                                 ;
 ; Total pins                         ; 47 / 360 ( 13 % )                                  ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/13/2024 14:49:30 ;
+; Start date & time ; 12/14/2024 11:21:21 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; sine_gen            ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 4459192848879.173409776918348          ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 4459192848879.173417168100836          ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -93,11 +93,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4793 MB             ; 00:00:12                           ;
-; Fitter               ; 00:00:12     ; 1.0                     ; 5828 MB             ; 00:00:07                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4728 MB             ; 00:00:02                           ;
+; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4793 MB             ; 00:00:09                           ;
+; Fitter               ; 00:00:12     ; 1.0                     ; 5831 MB             ; 00:00:04                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 4728 MB             ; 00:00:01                           ;
 ; Timing Analyzer      ; 00:00:06     ; 1.0                     ; 4866 MB             ; 00:00:01                           ;
-; Total                ; 00:00:32     ; --                      ; --                  ; 00:00:22                           ;
+; Total                ; 00:00:33     ; --                      ; --                  ; 00:00:15                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

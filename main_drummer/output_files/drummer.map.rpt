@@ -1,5 +1,5 @@
 Analysis & Synthesis report for drummer
-Fri Dec 13 14:46:00 2024
+Sat Dec 14 11:56:19 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Standard Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                            ;
 +------------------------------------+----------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Fri Dec 13 14:46:00 2024                  ;
+; Analysis & Synthesis Status        ; Failed - Sat Dec 14 11:56:19 2024                  ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Standard Edition ;
 ; Revision Name                      ; drummer                                            ;
 ; Top-level Entity Name              ; drummer                                            ;
@@ -164,16 +164,23 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Standard Edition
-    Info: Processing started: Fri Dec 13 14:45:52 2024
+    Info: Processing started: Sat Dec 14 11:56:01 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off drummer -c drummer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
-Error (10170): Verilog HDL syntax error at drummer.sv(1) near text: "(";  expecting an identifier. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv Line: 1
+Error (10170): Verilog HDL syntax error at drummer.sv(9) near text: "output";  expecting ")". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv Line: 9
+Error (10112): Ignored design unit "drummer" at drummer.sv(1) due to previous errors File: X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv Line: 1
+Error (10112): Ignored design unit "noise_gen" at drummer.sv(19) due to previous errors File: X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv Line: 19
+Error (10112): Ignored design unit "random" at drummer.sv(53) due to previous errors File: X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv Line: 53
+Error (10170): Verilog HDL syntax error at drummer.sv(83) near text: "output";  expecting an identifier ("output" is a reserved keyword ). Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv Line: 83
+Error (10170): Verilog HDL syntax error at drummer.sv(144) near text: "output";  expecting "(". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv Line: 144
+Error (10112): Ignored design unit "sine_gen" at drummer.sv(81) due to previous errors File: X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv Line: 81
+Error (10112): Ignored design unit "clkDivider" at drummer.sv(153) due to previous errors File: X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv Line: 153
 Info (12021): Found 0 design units, including 0 entities, in source file drummer.sv
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 4722 megabytes
-    Error: Processing ended: Fri Dec 13 14:46:00 2024
-    Error: Elapsed time: 00:00:08
-    Error: Total CPU time (on all processors): 00:00:10
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 8 errors, 1 warning
+    Error: Peak virtual memory: 4721 megabytes
+    Error: Processing ended: Sat Dec 14 11:56:19 2024
+    Error: Elapsed time: 00:00:18
+    Error: Total CPU time (on all processors): 00:00:09
 
 

@@ -80,7 +80,7 @@ module clkDivider(clk, reset, out);
     output out;
 	
 reg [31:0] count;
-reg [31:0] stop = 32'hF1b85;
+reg [31:0] stop = 32'hF23;
 reg outReg;
 
 always @(posedge clk or posedge reset)

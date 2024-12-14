@@ -1,12 +1,12 @@
-Fitter Status : Successful - Fri Dec 13 14:49:54 2024
+Fitter Status : Successful - Sat Dec 14 11:21:45 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Standard Edition
 Revision Name : sine_gen
 Top-level Entity Name : sine_gen
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 89 / 49,760 ( < 1 % )
-    Total combinational functions : 88 / 49,760 ( < 1 % )
+Total logic elements : 84 / 49,760 ( < 1 % )
+    Total combinational functions : 83 / 49,760 ( < 1 % )
     Dedicated logic registers : 49 / 49,760 ( < 1 % )
 Total registers : 49
 Total pins : 47 / 360 ( 13 % )

@@ -1,86 +1,11 @@
-module drummer(
-input [9:0] SW,
-input MAX10_CLK1_50, 
-output [35:0] GPIO
-);
-wire [7:0] connect;
-sine_gen sine(
-.SW(SW[9:0]),
-.connect(output),
-.MAX10_CLK1_50(MAX10_CLK1_50));
-noise_gen noise(
-connect[7:0],
-GPIO[7:0],
-MAX10_CLK1_50);
+/*
+    Send hardcoded sine wave forms. 
+	 Have 32 states (6 bits) to cycle through and print the associated hex value
+*/
 
-endmodule
-
-// Modules for -----Noise_gen____
-module noise_gen (in, out, MAX10_CLK1_50);
-    input [7:0] in;
-    input MAX10_CLK1_50;
-    output reg [7:0] out;
-	 
-	wire clk;
-   wire [4:0] noise;
-
-	assign clk = MAX10_CLK1_50;
-	
-   random ran1(clk, noise, reset);
-    
-    always_comb
-    begin
-    if(noise[0])
-        if(in + noise > 9'b111111111)
-            out = 8'b11111111;
-        else 
-            out = in + noise;
-    
-    else if(in > noise)
-        out = in - noise;
-    
-    else 
-        out = 8'b00000000;
-
-    end
-
-endmodule
-
-
-//  module that produces a five bit pseudo random value using a 5 bit register and an xor function
-//  Can be asyncronously reset using the reset input
-
-module random #(parameter WIDTH = 5)
-(clk, q, reset);
-	input clk, reset;
-	output q;
-
-	reg [WIDTH - 1:0] q;
-
-	always @(posedge clk or posedge reset)
-		begin
-			if(reset) 
-            begin
-				q[0] <= 1;
-                q[1] <= 1;
-                q[2] <= 0;
-                q[3] <= 0;
-                q[4] <= 1;
-            end
-            else 
-				q[0] <= q[WIDTH -1] ^ q[WIDTH - 3];
-				for(int i = 1; i <= WIDTH-1; i++) q[i] <= q[i-1];
- 		end
-endmodule
-//-----Noise_gen------
-
-
-
-
-//------sine_gen------
 module sine_gen(
 	input [9:0] SW ,
-	output [7:0] outn
+	output [35:0] GPIO,
 	input MAX10_CLK1_50);
 	
 	reg [7:0] out;
@@ -141,7 +66,7 @@ module sine_gen(
             endcase
         end
 
-    assign output = out;
+    assign GPIO [7:0] = out;
 endmodule
 
 
@@ -177,4 +102,3 @@ always @(posedge clk or posedge reset)
 
 assign out = outReg;
 endmodule
-//----sine_gen-----
