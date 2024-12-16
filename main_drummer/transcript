@@ -1,27 +1,39 @@
 # Compile of drummer.sv was successful.
 vsim -gui work.drummer
 # vsim -gui work.drummer 
-# Start time: 09:56:02 on Dec 16,2024
+# Start time: 12:45:19 on Dec 16,2024
 # Loading sv_std.std
 # Loading work.drummer
-# Loading work.sine_gen
 # Loading work.clkDivider
+# Loading work.sine_gen
 # Loading work.noise_gen
 # Loading work.random
 add wave *
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: pauku269  Hostname: TP4041-204  ProcessID: 2216
+#           Attempting to use alternate WLF file "./wlft7r3i8d".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft7r3i8d
+# (vish-4014) No objects found matching '*'.
+add wave *
+# (vish-4014) No objects found matching '*'.
+add wave -position insertpoint sim:/drummer/*
+force -freeze sim:/drummer/reset 1 0
 force -freeze sim:/drummer/MAX10_CLK1_50 1 0, 0 {50 ps} -r 100
-force -freeze sim:/drummer/reset 1 0
-force -freeze sim:/drummer/reset 0 0
-run
-force -freeze sim:/drummer/reset 1 0
-run
+step
 run
 force -freeze sim:/drummer/reset 0 0
 run
+force -freeze sim:/drummer/SW zzzzzzzz0z 0
+run
+# Break key hit
+# Break in Module clkDivider at X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv line 173
+force -freeze sim:/drummer/SW zzzzzzzz1z 0
+run
+force -freeze sim:/drummer/activate 1 0
+run
+force -freeze sim:/drummer/SW zzzzzzzz0z 0
+run
+noforce sim:/drummer/activate
 run
 run
-run
-# WARNING: No extended dataflow license exists
-quit -sim
-# End time: 10:00:35 on Dec 16,2024, Elapsed time: 0:04:33
-# Errors: 0, Warnings: 6

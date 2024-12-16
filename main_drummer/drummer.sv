@@ -6,39 +6,49 @@ module drummer(
 
     wire [7:0] connect;
     wire reset;
+	wire clk;
+	wire activate;
     wire [7:0] sound_out;
     assign reset = SW[0];
-
+    assign activate = SW[1];
+	 assign connect = 8'b11110000
+   
+clkDivider clkM (MAX10_CLK1_50, reset, clk);
+/*
     sine_gen sine(
         .reset(reset),
         .sine_out(connect),
-        .clkIn(MAX10_CLK1_50));
-
-    noise_gen noise(
-        .in(connect),
-        .reset(reset),
-        .out(sound_out),
-        .clk(MAX10_CLK1_50));
-
-	assign GPIO[31:8]
+        .clk(clk));
+*/
+   	noise_gen noise(
+      	.in(connect),
+     	.reset(reset),
+      	.out(sound_out),
+      	.clk(clk),
+	.activate(activate));
+	
+	
+	assign GPIO[35:8] = 28'b0;
     assign GPIO[7:0] = sound_out;
 endmodule
 
+
 // Modules for -----Noise_gen____
-module noise_gen (in, reset, out, clk);
+module noise_gen (in, reset, out, clk, activate);
     input [7:0] in;
     input reset;
     input clk;
+	input activate;
     output reg [7:0] out;
 
-    wire [4:0] noise;
+    wire [7:0] noise;
 
    random ran1(clk, noise, reset);
     
     always_comb
     begin
     if(noise[0])
-        if(in + noise > 9'b111111111)
+        if(in + noise > 9'b100000000)
             out = 8'b11111111;
         else 
             out = in + noise;
@@ -48,7 +58,12 @@ module noise_gen (in, reset, out, clk);
     
     else 
         out = 8'b00000000;
-    end
+    
+	if(~activate)
+		begin
+		out = in;
+		end
+end
 
 endmodule
 
@@ -56,25 +71,24 @@ endmodule
 //  module that produces a five bit pseudo random value using a 5 bit register and an xor function
 //  Can be asyncronously reset using the reset input
 
-module random #(parameter WIDTH = 5)
+module random #(parameter WIDTH = 8)
 (clk, q, reset);
 	input clk, reset;
 	output q;
 
-	reg [WIDTH - 1:0] q;
+	reg [WIDTH - 1:0] q = 8'b11011011;
 
 	always @(posedge clk or posedge reset)
 		begin
-			if(reset) 
+	/*if(reset) 
             begin
-				q[0] <= 1;
+		q[0] <= 1;
                 q[1] <= 1;
                 q[2] <= 0;
                 q[3] <= 0;
-                q[4] <= 1;
             end
-            else 
-				q[0] <= q[WIDTH -1] ^ q[WIDTH - 3];
+            else */
+				q[0] <= q[WIDTH -1] ^ q[WIDTH - 2];
 				for(int i = 1; i <= WIDTH-1; i++) q[i] <= q[i-1];
  		end
 endmodule
@@ -87,13 +101,10 @@ endmodule
 module sine_gen(
 	input reset ,
 	output [7:0] sine_out,
-	input clkIn);
+	input clk);
 	
 	reg [7:0] out;
     reg [7:0] state;
-	wire clk;
-    
-   clkDivider clkM (MAX10_CLK1_50, reset, clk);
 	 
 	 always @ (posedge clk or posedge reset)
         begin
@@ -157,19 +168,13 @@ module clkDivider(clk, reset, out);
     input clk, reset;
     output out;
 	
-reg [31:0] count;
-reg [31:0] stop = 32'hF1b85;
-reg outReg;
+reg [31:0] count = 32'b0;
+reg [31:0] stop = 32'hf85;
+reg outReg = 0;
 
-always @(posedge clk or posedge reset)
+always @(posedge clk)
     begin
-        if(reset)
-        begin
-            count <= 32'b0;
-            outReg <= 0;
-         end
-
-        else if(count == stop)
+        if(count == stop)
             begin
             count <= 32'b0;
             outReg <= ~outReg;
@@ -180,4 +185,3 @@ always @(posedge clk or posedge reset)
 
 assign out = outReg;
 endmodule
-//----sine_gen-----

@@ -11,24 +11,24 @@ cModel Technology
 dC:/Program Files/intelFPGA/20.1
 vclkDivider
 Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z1 !s110 1734339316
+Z1 !s110 1734349506
 !i10b 1
-!s100 LQMjXS8FA@DajVK]eT<?[0
+!s100 Nk<C]gLgLF8lzezJEon8W0
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-In51NNCoMFSiQXg4:cA;j41
+IgPCOa8>IYXFBo``:^gm=<3
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 S1
 Z4 dX:/Documents/GitHub/drummer/drummer/main_drummer
-Z5 w1734339031
+Z5 w1734346341
 Z6 8X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv
 Z7 FX:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv
-!i122 0
-L0 155 27
+!i122 17
+L0 165 21
 Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1734339315.000000
+Z9 !s108 1734349505.000000
 !s107 X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv|
 Z10 !s90 -reportprogress|300|-work|work|-sv|-stats=none|X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv|
 !i113 1
@@ -39,17 +39,17 @@ vdrummer
 R0
 R1
 !i10b 1
-!s100 bGGBSZfQD@7L^KlF=Ul>c0
+!s100 `jG[VhhWij68V<QH^LM><1
 R2
-IDe>E4bJB1K]1FM9P5W:cO1
+IC@K8m_G7Mb8FfJVJRAgcD0
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 0
-L0 1 24
+!i122 17
+L0 1 31
 R8
 r1
 !s85 0
@@ -64,17 +64,17 @@ vnoise_gen
 R0
 R1
 !i10b 1
-!s100 mhg:;MM_maH4LVc@XfB<E2
+!s100 ^Q^4c<T;3K=9NhLSJBGK_0
 R2
-IG:zEjLW7QeN5Ch3D<:0lM2
+ILdUPYSNb;ZLN5dk>Pa2LE2
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 0
-L0 27 26
+!i122 17
+L0 35 32
 R8
 r1
 !s85 0
@@ -89,17 +89,17 @@ vrandom
 R0
 R1
 !i10b 1
-!s100 PjTPQNM15L_WUPP3gCgc@1
+!s100 GeGbfT@IoIOcNfV^<>:f<2
 R2
-IGcN;0QWF9G]`?U_i2P7QZ2
+IMiNneKQ9Cf1Q6=9AVBA`d1
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 0
-L0 58 22
+!i122 17
+L0 72 21
 R8
 r1
 !s85 0
@@ -114,17 +114,17 @@ vsine_gen
 R0
 R1
 !i10b 1
-!s100 9SKK1j<2AFmY51OSbdoRT2
+!s100 Q;kSF>3Wi9fSzjV0G_l2`2
 R2
-Id_@ITK5Ndb4?]6Al3>@^40
+Ia;M^zo;hXNLMC?lD>:2`b2
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 0
-L0 86 62
+!i122 17
+L0 99 59
 R8
 r1
 !s85 0

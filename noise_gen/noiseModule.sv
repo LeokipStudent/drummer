@@ -1,17 +1,34 @@
 //  Module that adds noise to an 8 bit input signal by adding or subtracting a pseudo random 4 bit value to the signal.
 //  Use reset on startup to ensure proper function
 
-module noise_gen (in, out, MAX10_CLK1_50);
-    input [7:0] in;
-    input MAX10_CLK1_50;
-    output reg [7:0] out;
-	 
-	wire clk;
-   wire [4:0] noise;
+module Noise_gen_out(SW,GPIO, MAX10_CLK1_50);
+	input [9:0] SW;
+	input MAX10_CLK1_50;
+	output[35:0] GPIO;
 
-	assign clk = MAX10_CLK1_50;
+	wire reset;
+	wire [7:0] in;
+	wire [7:0] out;
+	wire clk;
+
+	assign reset = SW[0];
+	assign in = 8'b10000000;
 	
-   random ran1(clk, noise, reset);
+	clkDivider clkM (MAX10_CLK1_50, reset, clk);
+	
+	noise_gen noise(in, out, clk, reset);
+	
+	assign GPIO [7:0] = out;
+	assign GPIO [35:8] = 28'b0;
+endmodule
+
+module noise_gen (in, out, clk, reset);
+    input [7:0] in;
+    input clk;
+	 input reset;
+    output reg [7:0] out;
+	 wire [7:0] noise;
+    random ran1(clk, noise, reset);
     
     always_comb
     begin
@@ -35,7 +52,7 @@ endmodule
 //  module that produces a five bit pseudo random value using a 5 bit register and an xor function
 //  Can be asyncronously reset using the reset input
 
-module random #(parameter WIDTH = 5)
+module random #(parameter WIDTH = 8)
 (clk, q, reset);
 	input clk, reset;
 	output q;
@@ -51,9 +68,41 @@ module random #(parameter WIDTH = 5)
                 q[2] <= 0;
                 q[3] <= 0;
                 q[4] <= 1;
-            end
+                q[5] <= 1;
+                q[6] <= 1; 
+                q[7] <= 1;
+				end
             else 
 				q[0] <= q[WIDTH -1] ^ q[WIDTH - 3];
 				for(int i = 1; i <= WIDTH-1; i++) q[i] <= q[i-1];
  		end
+endmodule
+
+
+
+
+
+// It seems like the internal clk we use is running at 1.55 MHz 
+// Remember that freq = 2 x stop
+
+module clkDivider(clk, reset, out);
+    input clk, reset;
+    output out;
+	
+reg [31:0] count = 32'b0;
+reg [31:0] stop = 32'hF1b85;
+reg outReg = 0;
+
+always @(posedge clk)
+    begin
+        if(count == stop)
+            begin
+            count <= 32'b0;
+            outReg <= ~outReg;
+            end
+        else
+            count <= count + 1;
+    end
+
+assign out = outReg;
 endmodule
