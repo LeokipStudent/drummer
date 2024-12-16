@@ -1,0 +1,137 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Program Files/intelFPGA/20.1
+vclkDivider
+Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z1 !s110 1734339316
+!i10b 1
+!s100 LQMjXS8FA@DajVK]eT<?[0
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+In51NNCoMFSiQXg4:cA;j41
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+S1
+Z4 dX:/Documents/GitHub/drummer/drummer/main_drummer
+Z5 w1734339031
+Z6 8X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv
+Z7 FX:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv
+!i122 0
+L0 155 27
+Z8 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z9 !s108 1734339315.000000
+!s107 X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv|
+Z10 !s90 -reportprogress|300|-work|work|-sv|-stats=none|X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv|
+!i113 1
+Z11 o-work work -sv
+Z12 tCvgOpt 0
+nclk@divider
+vdrummer
+R0
+R1
+!i10b 1
+!s100 bGGBSZfQD@7L^KlF=Ul>c0
+R2
+IDe>E4bJB1K]1FM9P5W:cO1
+R3
+S1
+R4
+R5
+R6
+R7
+!i122 0
+L0 1 24
+R8
+r1
+!s85 0
+31
+R9
+Z13 !s107 X:/Documents/GitHub/drummer/drummer/main_drummer/drummer.sv|
+R10
+!i113 1
+R11
+R12
+vnoise_gen
+R0
+R1
+!i10b 1
+!s100 mhg:;MM_maH4LVc@XfB<E2
+R2
+IG:zEjLW7QeN5Ch3D<:0lM2
+R3
+S1
+R4
+R5
+R6
+R7
+!i122 0
+L0 27 26
+R8
+r1
+!s85 0
+31
+R9
+R13
+R10
+!i113 1
+R11
+R12
+vrandom
+R0
+R1
+!i10b 1
+!s100 PjTPQNM15L_WUPP3gCgc@1
+R2
+IGcN;0QWF9G]`?U_i2P7QZ2
+R3
+S1
+R4
+R5
+R6
+R7
+!i122 0
+L0 58 22
+R8
+r1
+!s85 0
+31
+R9
+R13
+R10
+!i113 1
+R11
+R12
+vsine_gen
+R0
+R1
+!i10b 1
+!s100 9SKK1j<2AFmY51OSbdoRT2
+R2
+Id_@ITK5Ndb4?]6Al3>@^40
+R3
+S1
+R4
+R5
+R6
+R7
+!i122 0
+L0 86 62
+R8
+r1
+!s85 0
+31
+R9
+R13
+R10
+!i113 1
+R11
+R12

@@ -18,8 +18,9 @@ module drummer(
         .in(connect),
         .reset(reset),
         .out(sound_out),
-        .clk(MAX10_CLK1_50);
+        .clk(MAX10_CLK1_50));
 
+	assign GPIO[31:8]
     assign GPIO[7:0] = sound_out;
 endmodule
 
