@@ -1,31 +1,37 @@
 module drummer(
-input [9:0] SW,
-input MAX10_CLK1_50, 
-output [35:0] GPIO
-);
-wire [7:0] connect;
-sine_gen sine(
-.SW(SW[9:0]),
-.connect(output),
-.MAX10_CLK1_50(MAX10_CLK1_50));
-noise_gen noise(
-connect[7:0],
-GPIO[7:0],
-MAX10_CLK1_50);
+    input [9:0] SW,
+    input MAX10_CLK1_50, 
+    output [35:0] GPIO
+    );
 
+    wire [7:0] connect;
+    wire reset;
+    wire [7:0] sound_out;
+    assign reset = SW[0];
+
+    sine_gen sine(
+        .reset(reset),
+        .sine_out(connect),
+        .clkIn(MAX10_CLK1_50));
+
+    noise_gen noise(
+        .in(connect),
+        .reset(reset),
+        .out(sound_out),
+        .clk(MAX10_CLK1_50);
+
+    assign GPIO[7:0] = sound_out;
 endmodule
 
 // Modules for -----Noise_gen____
-module noise_gen (in, out, MAX10_CLK1_50);
+module noise_gen (in, reset, out, clk);
     input [7:0] in;
-    input MAX10_CLK1_50;
+    input reset;
+    input clk;
     output reg [7:0] out;
-	 
-	wire clk;
-   wire [4:0] noise;
 
-	assign clk = MAX10_CLK1_50;
-	
+    wire [4:0] noise;
+
    random ran1(clk, noise, reset);
     
     always_comb
@@ -41,7 +47,6 @@ module noise_gen (in, out, MAX10_CLK1_50);
     
     else 
         out = 8'b00000000;
-
     end
 
 endmodule
@@ -79,16 +84,13 @@ endmodule
 
 //------sine_gen------
 module sine_gen(
-	input [9:0] SW ,
-	output [7:0] outn
-	input MAX10_CLK1_50);
+	input reset ,
+	output [7:0] sine_out,
+	input clkIn);
 	
 	reg [7:0] out;
-   reg [7:0] state;
+    reg [7:0] state;
 	wire clk;
-	wire reset;
-	
-	assign reset = SW[0];
     
    clkDivider clkM (MAX10_CLK1_50, reset, clk);
 	 
@@ -141,7 +143,7 @@ module sine_gen(
             endcase
         end
 
-    assign output = out;
+    assign sine_out = out;
 endmodule
 
 
