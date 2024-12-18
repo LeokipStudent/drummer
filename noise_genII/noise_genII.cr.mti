@@ -1,1 +1,11 @@
+X:/Documents/SystemVerilog/noise_genII/noise_genII.sv {1 {vlog -work work -sv -stats=none X:/Documents/SystemVerilog/noise_genII/noise_genII.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module noise_genII
+-- Compiling module random
+-- Compiling module sine_gen
+-- Compiling module clkDivider
 
+Top level modules:
+	noise_genII
+
+} {} {}}

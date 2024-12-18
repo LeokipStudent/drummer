@@ -2,9 +2,24 @@
 
 //Create a pseudo random 32 bit value and use that as the stop value for clockdivider, creating a signal of pseudo random frequeny
 
-module noise_genII()
+module noise_genII(
+	input [9:0] SW ,
+	output [35:0] GPIO,
+	input MAX10_CLK1_50);
 
+    wire reset;
+    wire dout;
+    wire ranClk;
+    wire clk;
+    wire stop;
 
+    assign reset = SW[0];
+
+    random ran(ranClk, stop, reset);
+
+    sine_gen sine(clk, reset, dout);
+
+    clkDivider clkdiv(MAX10_CLK1_50, reset, clk, stop);
 
 endmodule
 
@@ -14,23 +29,29 @@ endmodule
 //  module that produces a five bit pseudo random value using a 5 bit register and an xor function
 //  Can be asyncronously reset using the reset input
 
-module random #(parameter WIDTH = 32)
+module random #(parameter WIDTH = 17)
 (clk, q, reset);
 	input clk, reset;
 	output q;
 
-	reg [WIDTH - 1:0] q = 32'b01001001001001001001010100100100;
+	reg [WIDTH - 1:0] q = 17'b01001010010010101;
 
 	always @(posedge clk or posedge reset)
 		begin
 			if(reset) 
                 begin
-                q <= 32'b01001001001001001001010100100100;
+                q <= 17'b01001010010010101;
 				end
             else 
 				q[0] <= q[WIDTH -1] ^ q[WIDTH - 3];
 				for(int i = 1; i <= WIDTH-1; i++) q[i] <= q[i-1];
- 		end
+
+            if(q == 0)
+                begin
+                q <= 17'b00000000000000001;
+                end
+        end
+
 endmodule
 
 /*
@@ -100,25 +121,19 @@ endmodule
 
 
 
-module clkDivider(clk, reset, out);
-    input clk, reset;
+module clkDivider(clk, reset, out, stop);
+    input clk, reset, stop;
     output out;
+	
+reg [31:0] count = 32'b0;
+//reg [31:0] stop = 32'hf85;
+reg outReg = 0;
 
-reg [7:0] count;
-reg [7:0] stop = 8'b00010000;
-reg outReg;
-
-always @(posedge clk or posedge reset)
+always @(posedge clk)
     begin
-        if(reset)
-        begin
-            count <= 8'b0;
-            outReg <= 0;
-         end
-
-        else if(count == stop)
+        if(count == stop)
             begin
-            count <= 8'b0;
+            count <= 32'b0;
             outReg <= ~outReg;
             end
         else
