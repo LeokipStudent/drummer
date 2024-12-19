@@ -49,7 +49,7 @@ module Music (
     end
 
     // Instantiate the SineWaveGenerator
-    SineWaveGenerator sine_gen (
+    sine_gen sine_gen (
         .clk(clk),
         .reset(reset),
         .phase_inc(phase_inc),
