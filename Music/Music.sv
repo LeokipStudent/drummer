@@ -3,68 +3,64 @@
     Send hardcoded sine wave forms. 
 	 Have 32 states (6 bits) to cycle through and print the associated hex value
 */
-module Music (	input [9:0] SW ,
-	output [35:0] GPIO,
-	input MAX10_CLK1_50
-    );
 
-    wire reset;
-    wire clk1;
-    wire clk2;
-    wire clk3;
-    wire clk4;
-    wire [7:0] dout1;
-    wire [7:0] dout2;
-    wire [7:0] dout3;
-    reg [7:0] dout;
-    wire [31:0] f1;
-    wire [31:0] f2;
-    wire [31:0] f3;
-    wire [31:0] f4;
+module Music (
+    input wire clk,           // Clock signal
+    input wire reset,         // Reset signal
+    input wire start,         // Trigger signal
+    output wire [15:0] audio_out  // Output audio signal
+);
+    // Internal signals
+    wire [15:0] sine_out;          // Sine wave output from SineWaveGenerator
+    reg [1:0] current_wave;        // State: which sine wave to play (0, 1, or 2)
+    reg [31:0] timer;              // Timer to track 2-second intervals
 
-    assign reset = SW[0];
-    assign f1 = 32'h1BBE;
-    assign f2 = 32'h1762;
-    assign f3 = 32'h127F;
-    assign f4 = 32'hFFFFFFF;
+    // Frequencies for the sine waves (parameterized)
+    parameter FREQ1 = 440;         // First sine wave frequency (Hz)
+    parameter FREQ2 = 880;         // Second sine wave frequency (Hz)
+    parameter FREQ3 = 1320;        // Third sine wave frequency (Hz)
+    parameter CLOCK_FREQ = 48000;  // Sampling frequency (48 kHz)
 
-    clkDivider div1(MAX10_CLK1_50, reset, clk1, f1);
-    clkDivider div2(MAX10_CLK1_50, reset, clk2, f2);
-    clkDivider div3(MAX10_CLK1_50, reset, clk3, f3);
-    clkDivider div4(MAX10_CLK1_50, reset, clk4, f4);
-
-    
-    sine_gen sin(reset, dout1, clk1);
-    sine_gen sineI(reset, dout2, clk2);
-    sine_gen sineII(reset, dout3, clk3);
-
-    reg [1:0] state = 2'b00;
-
-    always @ (posedge clk4)
-        begin
-            case(state)
-            2'b00 : state = 2'b01;
-            2'b01 : state = 2'b10;
-            2'b10 : state = 2'b00;
-            default : state = 2'b00;                         
-            endcase
-        end
-
-
-    always @ (posedge clk4) 
-    begin
-        case(state)
-            2'b00 : dout = dout1;
-            2'b01 : dout = dout2;        
-            2'b10 : dout = dout3;
-            default : dout = dout1;
+    // Phase increment based on frequency
+    reg [31:0] phase_inc;
+    always @(*) begin
+        case (current_wave)
+            2'd0: phase_inc = (FREQ1 * (1 << 24)) / CLOCK_FREQ;
+            2'd1: phase_inc = (FREQ2 * (1 << 24)) / CLOCK_FREQ;
+            2'd2: phase_inc = (FREQ3 * (1 << 24)) / CLOCK_FREQ;
+            default: phase_inc = 0;
         endcase
     end
 
-    assign GPIO [7:0] = dout;
-    assign GPIO [35:8] = 24'b0;
+    // Timer logic to track 2-second intervals
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            timer <= 0;
+            current_wave <= 0;  // Start with the first sine wave
+        end else if (timer >= CLOCK_FREQ * 2) begin
+            timer <= 0;  // Reset timer after 2 seconds
+            current_wave <= current_wave + 1;  // Move to the next wave
+            if (current_wave == 2'd2) begin
+                current_wave <= 0;  // Loop back to the first wave
+            end
+        end else begin
+            timer <= timer + 1;
+        end
+    end
+
+    // Instantiate the SineWaveGenerator
+    SineWaveGenerator sine_gen (
+        .clk(clk),
+        .reset(reset),
+        .phase_inc(phase_inc),
+        .sine_out(sine_out)
+    );
+
+    // Connect the output
+    assign audio_out = sine_out;
 
 endmodule
+
 
 
 
