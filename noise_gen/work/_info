@@ -9,53 +9,130 @@ z2
 !i10f 100
 cModel Technology
 dX:/Documents/SystemVerilog/ProjectDrummer/random
-vnoiseModule
+vclkDivider
 Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z1 !s110 1732891757
+Z1 !s110 1736254090
 !i10b 1
-!s100 61OoCT7;7L7D_h3<Jk[ih2
+!s100 dc`W3gC_R08QW<n;T?3G>2
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-I@?8ol2a81162iWSCZ@j4V0
+I^AeDz6hFi2F9@NKNIzJmC2
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 S1
-Z4 dX:/Documents/SystemVerilog/ProjectDrummer/noiseModule
-Z5 w1732891751
-Z6 8X:\Documents\SystemVerilog\ProjectDrummer\noiseModule\noiseModule.sv
-Z7 FX:\Documents\SystemVerilog\ProjectDrummer\noiseModule\noiseModule.sv
-!i122 5
-L0 1 26
+Z4 dD:/GitHub/drummer/noise_gen
+Z5 w1736253766
+Z6 8D:/GitHub/drummer/noise_gen/noiseModule.sv
+Z7 FD:/GitHub/drummer/noise_gen/noiseModule.sv
+!i122 9
+L0 81 21
 Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1732891756.000000
-!s107 X:\Documents\SystemVerilog\ProjectDrummer\noiseModule\noiseModule.sv|
-Z10 !s90 -reportprogress|300|-work|work|-sv|-stats=none|X:\Documents\SystemVerilog\ProjectDrummer\noiseModule\noiseModule.sv|
+Z9 !s108 1736254090.000000
+!s107 D:/GitHub/drummer/noise_gen/noiseModule.sv|
+Z10 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/GitHub/drummer/noise_gen/noiseModule.sv|
 !i113 1
 Z11 o-work work -sv
 Z12 tCvgOpt 0
-nnoise@module
-vrandom
+nclk@divider
+vnoise_gen
 R0
 R1
 !i10b 1
-!s100 bZOT;I7C4Va77]?kR4M?91
+!s100 F2EblgX3=_@[_Qm:K<EF23
 R2
-Ii7lPJ6OReePbJ@?@zO?IL2
+I6RW__E<A7`7R=6gA:4j3I2
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 5
-L0 29 16
+!i122 9
+L0 25 25
 R8
 r1
 !s85 0
 31
 R9
-Z13 !s107 X:\Documents\SystemVerilog\ProjectDrummer\noiseModule\noiseModule.sv|
+Z13 !s107 D:/GitHub/drummer/noise_gen/noiseModule.sv|
+R10
+!i113 1
+R11
+R12
+vNoise_gen_out
+R0
+R1
+!i10b 1
+!s100 DMeK1HMgJFA=`^5Ihd5zE1
+R2
+IcVEogXIg;3nKf<EH:_0][0
+R3
+S1
+R4
+R5
+R6
+R7
+!i122 9
+L0 4 20
+R8
+r1
+!s85 0
+31
+R9
+R13
+R10
+!i113 1
+R11
+R12
+n@noise_gen_out
+vnoiseModule
+R0
+!s110 1732891757
+!i10b 1
+!s100 61OoCT7;7L7D_h3<Jk[ih2
+R2
+I@?8ol2a81162iWSCZ@j4V0
+R3
+S1
+dX:/Documents/SystemVerilog/ProjectDrummer/noiseModule
+w1732891751
+8X:\Documents\SystemVerilog\ProjectDrummer\noiseModule\noiseModule.sv
+FX:\Documents\SystemVerilog\ProjectDrummer\noiseModule\noiseModule.sv
+!i122 5
+L0 1 26
+R8
+r1
+!s85 0
+31
+!s108 1732891756.000000
+!s107 X:\Documents\SystemVerilog\ProjectDrummer\noiseModule\noiseModule.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|X:\Documents\SystemVerilog\ProjectDrummer\noiseModule\noiseModule.sv|
+!i113 1
+R11
+R12
+nnoise@module
+vrandom
+R0
+R1
+!i10b 1
+!s100 _cUl<1L4Z?09`z0OjPWH>3
+R2
+I<6dbCRRO2gQ53=l@3a@2R0
+R3
+S1
+R4
+R5
+R6
+R7
+!i122 9
+L0 55 18
+R8
+r1
+!s85 0
+31
+R9
+R13
 R10
 !i113 1
 R11

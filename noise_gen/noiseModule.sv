@@ -1,7 +1,7 @@
 //  Module that adds noise to an 8 bit input signal by adding or subtracting a pseudo random 4 bit value to the signal.
 //  Use reset on startup to ensure proper function
 
-module Noise_gen_out(SW,GPIO, MAX10_CLK1_50);
+module Noise_gen_out(SW, GPIO, MAX10_CLK1_50);
 	input [9:0] SW;
 	input MAX10_CLK1_50;
 	output[35:0] GPIO;
@@ -33,7 +33,7 @@ module noise_gen (in, out, clk, reset);
     always_comb
     begin
     if(noise[0])
-        if(in + noise > 9'b111111111)
+        if(in + noise > 9'b011111111)
             out = 8'b11111111;
         else 
             out = in + noise;
@@ -57,20 +57,13 @@ module random #(parameter WIDTH = 8)
 	input clk, reset;
 	output q;
 
-	reg [WIDTH - 1:0] q;
+	reg [WIDTH - 1:0] q = 8'b10101101;
 
 	always @(posedge clk or posedge reset)
 		begin
 			if(reset) 
             begin
-				q[0] <= 1;
-                q[1] <= 1;
-                q[2] <= 0;
-                q[3] <= 0;
-                q[4] <= 1;
-                q[5] <= 1;
-                q[6] <= 1; 
-                q[7] <= 1;
+				q = 8'b10101101;
 				end
             else 
 				q[0] <= q[WIDTH -1] ^ q[WIDTH - 3];
@@ -82,8 +75,8 @@ endmodule
 
 
 
-// It seems like the internal clk we use is running at 1.55 MHz 
-// Remember that freq = 2 x stop
+// Output frequency is = 2 x stop 
+// Remember that sinewave takes 32 clock cycles for one wave 
 
 module clkDivider(clk, reset, out);
     input clk, reset;

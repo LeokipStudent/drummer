@@ -1,1 +1,11 @@
+D:/GitHub/drummer/noise_gen/noiseModule.sv {1 {vlog -work work -sv -stats=none D:/GitHub/drummer/noise_gen/noiseModule.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Noise_gen_out
+-- Compiling module noise_gen
+-- Compiling module random
+-- Compiling module clkDivider
 
+Top level modules:
+	Noise_gen_out
+
+} {} {}}
